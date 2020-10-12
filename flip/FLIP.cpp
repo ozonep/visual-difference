@@ -285,9 +285,9 @@ bool image::save(const char* filename)
         {
             int index = components * (y * mWidth + x);
             color3 color = this->get(x, y);
-            pixels[index + 0] = unsigned char(255.0f * std::max(0.0f, std::min(1.0f, color.x)) + 0.5f);
-            pixels[index + 1] = unsigned char(255.0f * std::max(0.0f, std::min(1.0f, color.y)) + 0.5f);
-            pixels[index + 2] = unsigned char(255.0f * std::max(0.0f, std::min(1.0f, color.z)) + 0.5f);
+            pixels[index + 0] = static_cast<unsigned char>(255.0f * std::max(0.0f, std::min(1.0f, color.x)) + 0.5f);
+            pixels[index + 1] = static_cast<unsigned char>(255.0f * std::max(0.0f, std::min(1.0f, color.y)) + 0.5f);
+            pixels[index + 2] = static_cast<unsigned char>(255.0f * std::max(0.0f, std::min(1.0f, color.z)) + 0.5f);
         }
     }
 

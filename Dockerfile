@@ -11,7 +11,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
 
 COPY /flip/. /flip
 WORKDIR /flip
-RUN g++ FLIP.cpp -o flip
+RUN g++ FLIP.cpp -o flip -static
 
 
 FROM alpine:3
@@ -26,3 +26,4 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
         && mkdir /var/cache/apk
 
 COPY --from=builder /flip/flip /usr/bin/flip
+CMD ["/bin/sh"]
